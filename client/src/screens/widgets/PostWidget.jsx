@@ -233,18 +233,7 @@ const PostWidget = ({
             borderTop: `1px solid ${palette.divider}`, // Add a border at the top for separation
           }}
         />
-        <WidgetWrapper
-          sx={{
-            display: "inline-block",
-            "&:hover": {
-              backgroundColor: mode === "dark" ? palette.grey[800] : "#EBEBEB", // Adjust hover background color based on theme
-              cursor: "pointer",
-            },
-            width: "100%",
-          }}
-        >
-          <FlexBetween></FlexBetween>
-        </WidgetWrapper>
+
         <Divider
           sx={{
             backgroundColor: palette.text.primary,

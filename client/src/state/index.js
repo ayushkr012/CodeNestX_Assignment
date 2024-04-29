@@ -3,7 +3,7 @@ import axios from "axios";
 import { io } from "socket.io-client";
 
 const initialState = {
-  mode: "dark",
+  mode: "white",
   user: null,
   token: null,
   posts: [],
