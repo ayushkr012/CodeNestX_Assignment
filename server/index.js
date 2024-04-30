@@ -5,25 +5,14 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import path from "path";
-import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import connectDB from "./config/db.js";
 import { generateSignature } from "./controllers/cloudinaryUpload.js";
-import { verifyToken } from "./middleware/auth.js";
-import User from "./models/User.js";
-import Post from "./models/Post.js";
-import { users, posts } from "./data/index.js";
 
 dotenv.config();
 const app = express();
-
-// these below 3 lines are required for only advertisement widget and linkedin and twitterIcon
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 app.use(cookieParser());
 app.use(express.json());
@@ -52,7 +41,4 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-  /* ADD Some Dummy DATA ONE TIME  */
-  // User.insertMany(users);
-  // Post.insertMany(posts);
 });
